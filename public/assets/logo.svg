@@ -1,0 +1,26 @@
+<svg width="450" height="80" viewBox="0 0 450 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circle Logo -->
+  <circle cx="40" cy="40" r="30" fill="#228B22"/>
+  <circle cx="40" cy="40" r="32" stroke="#228B22" stroke-width="2"/>
+  
+  <!-- Tree silhouette in background of circle -->
+  <path d="M40 70 C 30 70, 25 50, 20 45 C 15 40, 20 30, 30 25 C 40 20, 50 20, 60 25 C 70 30, 75 40, 70 45 C 65 50, 60 70, 50 70 Z" fill="#1b631b"/>
+  <path d="M40 70 L40 45 L35 35 L40 45 L45 35" stroke="#1b631b" stroke-width="4"/>
+
+  <!-- Star -->
+  <path d="M40 15 L46 32 L64 32 L49 42 L55 60 L40 49 L25 60 L31 42 L16 32 L34 32 Z" fill="none" stroke="white" stroke-width="3" stroke-linejoin="round"/>
+  
+  <!-- Red stroke accent on star -->
+  <path d="M16 32 L40 25 L64 32" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Text: STAR GARDENS -->
+  <g fill="#1b8b22" font-family="'Georgia', serif" font-size="28" font-weight="900" font-style="italic" letter-spacing="2">
+    <text x="85" y="48">ST</text>
+    
+    <!-- Inline A Star -->
+    <path d="M142 25 L146 36 L158 36 L148 43 L152 55 L142 48 L132 55 L136 43 L126 36 L138 36 Z" fill="none" stroke="#1b8b22" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M126 36 L142 31 L158 36" stroke="#CC0000" stroke-width="3" stroke-linecap="round"/>
+    
+    <text x="165" y="48">R GARDENS</text>
+  </g>
+</svg>
