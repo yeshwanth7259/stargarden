@@ -35,7 +35,7 @@ const Corporate = ({ onNavigate }) => {
   return (
     <div className="bg-white">
       {/* 1. Hero Banner */}
-      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-40 overflow-hidden bg-[#020617] flex items-center min-h-[90vh]">
+      <section className="relative pt-40 lg:pt-48 pb-24 lg:pb-40 overflow-hidden bg-[#020617] flex flex-col justify-start lg:justify-center min-h-[100svh] lg:min-h-[90vh]">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <motion.img 
             initial={{ scale: 1.1 }}
@@ -49,7 +49,7 @@ const Corporate = ({ onNavigate }) => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/80 to-transparent"></div>
         </div>
         
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative z-10 w-full flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-10 relative z-10 w-full flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Left Text */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -57,19 +57,19 @@ const Corporate = ({ onNavigate }) => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:w-[55%] text-white"
           >
-            <span className="text-[0.75rem] font-bold tracking-widest text-[#a3e635] uppercase mb-5 block">CORPORATE SOLUTIONS</span>
-            <h1 className="text-5xl lg:text-[4.5rem] font-serif font-bold mb-6 leading-[1.1] text-slate-100 tracking-tight">
-              Corporate Green <br/> Solutions for <br/>
+            <span className="text-[0.75rem] font-bold tracking-widest text-[#a3e635] uppercase mb-4 lg:mb-5 block">CORPORATE SOLUTIONS</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-[4.5rem] font-serif font-bold mb-4 lg:mb-6 leading-[1.15] lg:leading-[1.1] text-slate-100 tracking-tight">
+              Corporate Green <br className="hidden sm:block" /> Solutions for <br className="hidden lg:block" />
               <span className="text-[#a3e635]">Modern Businesses</span>
             </h1>
-            <p className="text-[1.05rem] text-slate-300 leading-relaxed mb-10 max-w-xl">
+            <p className="text-[0.95rem] lg:text-[1.05rem] text-slate-300 leading-relaxed mb-8 lg:mb-10 max-w-xl">
               We create inspiring, healthy and sustainable green environments that enhance productivity, wellbeing and the overall corporate image.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <button onClick={() => setIsSiteVisitOpen(true)} className="bg-[#65a30d] hover:bg-[#4d7c0f] text-white px-8 py-4 rounded-full font-bold tracking-wide text-[0.85rem] transition-colors flex items-center gap-2 uppercase shadow-lg shadow-[#65a30d]/20 cursor-pointer hover:scale-105 active:scale-95">
+            <div className="flex flex-col sm:flex-row gap-4 w-fit">
+              <button onClick={() => setIsSiteVisitOpen(true)} className="bg-[#65a30d] hover:bg-[#4d7c0f] text-white px-8 py-4 rounded-full font-bold tracking-wide text-[0.85rem] transition-colors flex items-center justify-center gap-2 uppercase shadow-lg shadow-[#65a30d]/20 cursor-pointer hover:scale-105 active:scale-95 w-fit">
                 Schedule A Site Visit <i className='bx bx-right-arrow-alt text-xl'></i>
               </button>
-              <button className="border border-white/20 hover:border-white text-white px-8 py-4 rounded-full font-bold tracking-wide text-[0.85rem] transition-all uppercase hover:bg-white/5 backdrop-blur-sm">
+              <button className="border border-white/20 hover:border-white text-white px-8 py-4 rounded-full font-bold tracking-wide text-[0.85rem] transition-all uppercase hover:bg-white/5 backdrop-blur-sm w-fit">
                 View Corporate Projects
               </button>
             </div>
@@ -83,7 +83,7 @@ const Corporate = ({ onNavigate }) => {
               hidden: { opacity: 0, scale: 0.95 },
               visible: { opacity: 1, scale: 1, transition: { duration: 0.6, delay: 0.4, staggerChildren: 0.1 } }
             }}
-            className="lg:w-[420px] bg-[#1e293b]/40 backdrop-blur-xl border border-white/10 rounded-2xl p-8 lg:p-10 shadow-2xl relative overflow-hidden"
+            className="w-full lg:w-[420px] bg-[#1e293b]/40 backdrop-blur-xl border border-white/10 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden mt-6 lg:mt-0"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
             <div className="grid grid-cols-1 gap-6 relative z-10">
@@ -126,16 +126,16 @@ const Corporate = ({ onNavigate }) => {
       </section>
 
       {/* 3. Comprehensive Green Solutions */}
-      <section className="py-24 bg-[#fdfbf7]">
+      <section className="py-12 lg:py-24 bg-[#fdfbf7]">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 lg:mb-16 gap-6 lg:gap-8">
             <div>
               <span className="text-[0.7rem] font-bold tracking-widest text-[#65a30d] uppercase mb-4 block">OUR CORPORATE SOLUTIONS</span>
-              <h2 className="text-4xl lg:text-[3rem] font-serif font-bold text-[#1e293b] leading-tight max-w-2xl">
+              <h2 className="text-3xl sm:text-4xl lg:text-[3rem] font-serif font-bold text-[#1e293b] leading-tight max-w-2xl">
                 Comprehensive Green Solutions for Every Corporate Need
               </h2>
             </div>
-            <p className="text-slate-500 text-lg max-w-md">
+            <p className="text-slate-500 text-[0.95rem] lg:text-lg max-w-md">
               From office plant rentals to complete landscape development and long-term maintenance, we provide end-to-end green solutions tailored for corporate environments.
             </p>
           </div>
@@ -168,7 +168,7 @@ const Corporate = ({ onNavigate }) => {
                 </div>
                 <p className="text-slate-500 text-sm leading-relaxed mb-4 flex-grow">{sol.desc}</p>
                 <button onClick={() => { if(onNavigate) onNavigate('services'); }} className="text-[#65a30d] text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all mb-4 cursor-pointer text-left w-fit">Explore <i className='bx bx-right-arrow-alt'></i></button>
-                <div className="rounded-xl overflow-hidden h-32 shrink-0 relative">
+                <div className="rounded-xl overflow-hidden h-40 shrink-0 relative w-full">
                   <img src={sol.img} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={sol.title} />
                 </div>
               </motion.div>
@@ -214,14 +214,14 @@ const Corporate = ({ onNavigate }) => {
       </section>
 
       {/* 5. Greening Workspaces Across Industries */}
-      <section className="py-24 bg-white">
+      <section className="py-12 lg:py-24 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="mb-12">
             <span className="text-[0.7rem] font-bold tracking-widest text-[#65a30d] uppercase mb-4 block">INDUSTRIES WE SERVE</span>
             <h2 className="text-3xl lg:text-[2.5rem] font-serif font-bold text-[#1e293b]">Greening Workspaces Across Industries</h2>
           </div>
           
-          <div className="grid grid-cols-2 lg:grid-cols-8 gap-3 h-[260px]">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3">
             {/* Industry Items */}
             {[
               { name: 'IT Parks', img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600&auto=format&fit=crop' },
@@ -233,7 +233,7 @@ const Corporate = ({ onNavigate }) => {
               { name: 'Industrial Campuses', img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop' },
               { name: 'Commercial Complexes', img: 'https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=600&auto=format&fit=crop' },
             ].map(ind => (
-              <div key={ind.name} className="relative rounded-xl overflow-hidden group cursor-pointer h-full">
+              <div key={ind.name} className="relative rounded-xl overflow-hidden group cursor-pointer aspect-square lg:aspect-auto lg:h-[260px]">
                 <img src={ind.img} alt={ind.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                 <h4 className="absolute bottom-4 left-0 w-full text-center text-white font-semibold text-[0.85rem] px-2 leading-tight tracking-wide">{ind.name}</h4>
@@ -244,7 +244,7 @@ const Corporate = ({ onNavigate }) => {
       </section>
 
       {/* 6. Our Proven 6-Step Process */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-12 lg:py-24 bg-white overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="mb-16">
             <span className="text-[0.7rem] font-bold tracking-widest text-[#65a30d] uppercase mb-4 block">OUR PROCESS</span>
@@ -256,7 +256,7 @@ const Corporate = ({ onNavigate }) => {
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
-            className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-2 relative z-10"
+            className="grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-row justify-between items-start gap-8 lg:gap-2 relative z-10"
           >
             {[
               { title: 'Consultation', icon: 'bx-support', desc: 'Understanding your vision and requirements.' },
@@ -267,12 +267,12 @@ const Corporate = ({ onNavigate }) => {
               { title: 'Regular Reviews', icon: 'bx-sync', desc: 'Continuous monitoring and improvement for excellence.' },
             ].map((step, index, arr) => (
               <React.Fragment key={step.title}>
-                <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col items-center text-center w-full lg:w-40 relative group">
-                  <div className="w-24 h-24 rounded-full bg-[#65a30d]/10 flex items-center justify-center mb-6 text-[#4d7c0f] group-hover:bg-[#65a30d] group-hover:text-white transition-all duration-300">
-                    <i className={`bx ${step.icon} text-[2.5rem]`}></i>
+                <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col items-center text-center w-full lg:w-40 relative group bg-gray-50/50 lg:bg-transparent p-6 rounded-2xl lg:p-0">
+                  <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-[#65a30d]/10 flex items-center justify-center mb-4 lg:mb-6 text-[#4d7c0f] group-hover:bg-[#65a30d] group-hover:text-white transition-all duration-300">
+                    <i className={`bx ${step.icon} text-3xl lg:text-[2.5rem]`}></i>
                   </div>
-                  <h4 className="font-bold text-slate-800 text-[1.05rem] mb-2">{step.title}</h4>
-                  <p className="text-slate-500 text-[0.85rem] leading-relaxed px-2">{step.desc}</p>
+                  <h4 className="font-bold text-slate-800 text-lg lg:text-[1.05rem] mb-2">{step.title}</h4>
+                  <p className="text-slate-500 text-sm lg:text-[0.85rem] leading-relaxed">{step.desc}</p>
                 </motion.div>
                 {index < arr.length - 1 && (
                   <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }} className="hidden lg:flex flex-col justify-center items-center h-24 flex-grow px-2">
@@ -289,14 +289,14 @@ const Corporate = ({ onNavigate }) => {
       </section>
 
       {/* 7. Some Of Our Prestigious Projects */}
-      <section className="py-24 bg-white">
+      <section className="py-12 lg:py-24 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-12 gap-6">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 gap-6">
             <div>
               <span className="text-[0.7rem] font-bold tracking-widest text-[#65a30d] uppercase mb-4 block">FEATURED CORPORATE PROJECTS</span>
-              <h2 className="text-3xl lg:text-[2.5rem] font-serif font-bold text-[#1e293b]">Some Of Our Prestigious Projects</h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.5rem] font-serif font-bold text-[#1e293b]">Some Of Our Prestigious Projects</h2>
             </div>
-            <button onClick={() => onNavigate('projects')} className="text-[#65a30d] text-sm font-bold uppercase tracking-wide flex items-center gap-1 hover:gap-2 transition-all">VIEW ALL PROJECTS <i className='bx bx-right-arrow-alt'></i></button>
+            <button onClick={() => onNavigate('projects')} className="text-[#65a30d] text-sm font-bold uppercase tracking-wide flex items-center gap-1 hover:gap-2 transition-all w-full sm:w-auto">VIEW ALL PROJECTS <i className='bx bx-right-arrow-alt'></i></button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
@@ -322,7 +322,7 @@ const Corporate = ({ onNavigate }) => {
       </section>
 
       {/* 8. CTA Footer block */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-16 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/assets/cta-bg.jpg')] bg-cover bg-center"></div>
         <div className="absolute inset-0 bg-[#0f2e1a]/80 mix-blend-multiply"></div>
         <div className="absolute inset-0 bg-black/40"></div>

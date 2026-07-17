@@ -87,7 +87,7 @@ const About = ({ onNavigate }) => {
       </section>
 
       {/* 2. Who We Are */}
-      <section className="py-20 lg:py-28 relative overflow-hidden">
+      <section className="py-12 sm:py-20 lg:py-28 relative overflow-hidden">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -189,7 +189,7 @@ const About = ({ onNavigate }) => {
       </section>
 
       {/* 3. Our Journey in Numbers */}
-      <section className="bg-[#0a2f15] py-20 relative overflow-hidden">
+      <section className="bg-[#0a2f15] py-12 lg:py-20 relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative z-10">
           <div className="mb-12">
             <span className="text-[0.7rem] font-bold tracking-widest text-[#65a30d] uppercase mb-3 block">OUR JOURNEY IN NUMBERS</span>
@@ -224,7 +224,7 @@ const About = ({ onNavigate }) => {
       </section>
 
       {/* 4. Our Story */}
-      <section className="py-20 lg:py-28 bg-[#fdfbf7]">
+      <section className="py-12 sm:py-20 lg:py-28 bg-[#fdfbf7]">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-16">
           
           {/* Left Content */}
@@ -283,7 +283,7 @@ const About = ({ onNavigate }) => {
       </section>
 
       {/* 5. Why Choose Us / Promise */}
-      <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
+      <section className="py-12 sm:py-20 lg:py-32 bg-white relative overflow-hidden">
         {/* No decorative overlay on the right */}
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative z-10">
           <div className="mb-16">

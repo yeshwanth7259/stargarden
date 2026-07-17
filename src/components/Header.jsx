@@ -22,18 +22,18 @@ const Header = ({ onOpenQuote, onOpenAuth, onNavigate, currentPage = 'home', use
     >
       {/* Top Bar with Contact Info & Animations */}
       <div 
-        className="bg-[#0a1f10] text-gray-200 text-[0.95rem] sm:text-[1rem] flex justify-center sm:justify-between items-center px-6 md:px-10 relative overflow-hidden transition-all duration-300 h-12 py-2.5 opacity-100"
+        className="bg-[#0a1f10] text-gray-200 text-[0.75rem] sm:text-[0.95rem] flex flex-col sm:flex-row justify-center sm:justify-between items-center px-4 md:px-10 relative overflow-hidden transition-all duration-300 py-1.5 sm:py-2.5 opacity-100 min-h-[3rem]"
       >
         {/* Shimmer Animation overlay */}
         <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-[shimmer_3s_infinite]" />
         
-        <div className="flex items-center gap-4 sm:gap-6 relative z-10 w-full sm:w-auto justify-center sm:justify-start">
-          <a href="https://wa.me/9108336666" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-[#84cc16] transition-colors font-medium">
-            <i className='bx bxl-whatsapp text-[#84cc16] animate-pulse text-lg'></i> WhatsApp: +91 91083 36666
+        <div className="flex flex-col sm:flex-row items-center gap-0.5 sm:gap-6 relative z-10 w-full sm:w-auto justify-center sm:justify-start">
+          <a href="https://wa.me/9108336666" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-[#84cc16] transition-colors font-medium whitespace-nowrap">
+            <i className='bx bxl-whatsapp text-[#84cc16] animate-pulse text-base sm:text-lg'></i> WhatsApp: +91 91083 36666
           </a>
-          <span className="w-px h-5 bg-gray-600"></span>
-          <a href="mailto:abhi@stargarden.in" className="flex items-center gap-1.5 hover:text-[#84cc16] transition-colors font-medium">
-            <i className='bx bx-envelope text-[#84cc16] animate-pulse delay-75 text-lg'></i> abhi@stargarden.in
+          <span className="w-px h-4 bg-gray-600 hidden sm:block"></span>
+          <a href="mailto:abhi@stargarden.in" className="flex items-center gap-1.5 hover:text-[#84cc16] transition-colors font-medium whitespace-nowrap">
+            <i className='bx bx-envelope text-[#84cc16] animate-pulse delay-75 text-base sm:text-lg'></i> abhi@stargarden.in
           </a>
         </div>
         <div className="hidden md:flex items-center gap-4 relative z-10">
@@ -48,19 +48,45 @@ const Header = ({ onOpenQuote, onOpenAuth, onNavigate, currentPage = 'home', use
             <img src="/assets/brand-logo.png" alt="Star Gardens" className="w-[180px] md:w-[220px] lg:w-[240px] xl:w-[280px] h-12 md:h-14 lg:h-[70px] object-cover object-center" onError={(e) => { e.target.src = 'https://placehold.co/250x60/ffffff/1b8b22?text=Star+Gardens' }} />
           </button>
           
-          <nav className={`md:block ${mobileMenuOpen ? 'absolute top-full left-0 w-full bg-white p-5 shadow-lg flex flex-col border-t border-gray-100' : 'hidden md:flex flex-1 justify-center'}`}>
-            <ul className={`flex ${mobileMenuOpen ? 'flex-col gap-5' : 'gap-3 lg:gap-4 xl:gap-8'} items-center`}>
-              <li><button onClick={() => { onNavigate('home'); setMobileMenuOpen(false); }} className={`${currentPage === 'home' ? 'text-[#1b8b22] font-semibold border-b-2 border-[#1b8b22]' : 'text-slate-700 font-medium hover:text-[#1b8b22] border-b-2 border-transparent'} text-[1.05rem] lg:text-[1.1rem] py-1 transition-colors cursor-pointer whitespace-nowrap`}>Home</button></li>
-              <li><button onClick={() => { onNavigate('about'); setMobileMenuOpen(false); }} className={`${currentPage === 'about' ? 'text-[#1b8b22] font-semibold border-b-2 border-[#1b8b22]' : 'text-slate-700 font-medium hover:text-[#1b8b22] border-b-2 border-transparent'} text-[1.05rem] lg:text-[1.1rem] py-1 transition-colors cursor-pointer whitespace-nowrap`}>About Us</button></li>
-              <li><button onClick={() => { onNavigate('corporate'); setMobileMenuOpen(false); }} className={`${currentPage === 'corporate' ? 'text-[#1b8b22] font-semibold border-b-2 border-[#1b8b22]' : 'text-slate-700 font-medium hover:text-[#1b8b22] border-b-2 border-transparent'} text-[1.05rem] lg:text-[1.1rem] py-1 transition-colors cursor-pointer whitespace-nowrap`}>Corporates</button></li>
-              <li><button onClick={() => { onNavigate('landscape-architecture'); setMobileMenuOpen(false); }} className={`${currentPage === 'landscape-architecture' ? 'text-[#1b8b22] font-semibold border-b-2 border-[#1b8b22]' : 'text-slate-700 font-medium hover:text-[#1b8b22] border-b-2 border-transparent'} text-[1.05rem] lg:text-[1.1rem] py-1 transition-colors cursor-pointer whitespace-nowrap`}>Landscape Design</button></li>
-              <li className="relative group w-full lg:w-auto">
-                <button onClick={() => { onNavigate('services'); setMobileMenuOpen(false); }} className={`${currentPage.includes('service') ? 'text-[#1b8b22] font-semibold border-b-2 border-[#1b8b22]' : 'text-slate-700 font-medium hover:text-[#1b8b22] border-b-2 border-transparent'} text-[1.05rem] lg:text-[1.1rem] py-1 transition-colors cursor-pointer flex items-center gap-1 w-full lg:w-auto justify-between lg:justify-start whitespace-nowrap`}>
-                  Services <i className='bx bx-chevron-down text-base'></i>
+          {/* Mobile Menu Backdrop */}
+          {mobileMenuOpen && (
+            <div 
+              className="fixed inset-0 bg-black/60 z-[1500] transition-opacity duration-300 md:hidden"
+              onClick={() => setMobileMenuOpen(false)}
+            />
+          )}
+          
+          <nav className={`fixed md:static top-0 right-0 h-screen md:h-auto w-[280px] sm:w-[320px] md:w-auto bg-white md:bg-transparent shadow-2xl md:shadow-none z-[1600] md:z-auto transition-transform duration-300 ease-in-out transform ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} md:translate-x-0 md:flex flex-1 md:justify-center overflow-y-auto md:overflow-visible flex flex-col`}>
+            
+            {/* Mobile Drawer Header with Close Button */}
+            <div className="md:hidden flex items-center justify-between p-5 border-b border-gray-100 bg-white sticky top-0 z-10">
+              <span className="font-bold text-[#1b8b22] tracking-wider text-sm uppercase">Menu</span>
+              <button onClick={() => setMobileMenuOpen(false)} className="text-gray-500 hover:text-red-500 text-3xl transition-colors">
+                <i className='bx bx-x'></i>
+              </button>
+            </div>
+
+            <ul className={`flex flex-col md:flex-row gap-0 md:gap-3 lg:gap-4 xl:gap-8 items-start md:items-center w-full pb-10 md:pb-0`}>
+              <li className="w-full md:w-auto border-b border-gray-50 md:border-none">
+                <button onClick={() => { onNavigate('home'); setMobileMenuOpen(false); }} className={`w-full text-left ${currentPage === 'home' ? 'text-[#1b8b22] font-semibold border-l-4 md:border-l-0 md:border-b-2 border-[#1b8b22] bg-green-50/50 md:bg-transparent' : 'text-slate-700 font-medium hover:text-[#1b8b22] border-l-4 md:border-l-0 md:border-b-2 border-transparent hover:bg-gray-50 md:hover:bg-transparent'} text-[1.05rem] lg:text-[1.1rem] py-4 px-6 md:py-1 md:px-0 transition-colors cursor-pointer whitespace-nowrap`}>Home</button>
+              </li>
+              <li className="w-full md:w-auto border-b border-gray-50 md:border-none">
+                <button onClick={() => { onNavigate('about'); setMobileMenuOpen(false); }} className={`w-full text-left ${currentPage === 'about' ? 'text-[#1b8b22] font-semibold border-l-4 md:border-l-0 md:border-b-2 border-[#1b8b22] bg-green-50/50 md:bg-transparent' : 'text-slate-700 font-medium hover:text-[#1b8b22] border-l-4 md:border-l-0 md:border-b-2 border-transparent hover:bg-gray-50 md:hover:bg-transparent'} text-[1.05rem] lg:text-[1.1rem] py-4 px-6 md:py-1 md:px-0 transition-colors cursor-pointer whitespace-nowrap`}>About Us</button>
+              </li>
+              <li className="w-full md:w-auto border-b border-gray-50 md:border-none">
+                <button onClick={() => { onNavigate('corporate'); setMobileMenuOpen(false); }} className={`w-full text-left ${currentPage === 'corporate' ? 'text-[#1b8b22] font-semibold border-l-4 md:border-l-0 md:border-b-2 border-[#1b8b22] bg-green-50/50 md:bg-transparent' : 'text-slate-700 font-medium hover:text-[#1b8b22] border-l-4 md:border-l-0 md:border-b-2 border-transparent hover:bg-gray-50 md:hover:bg-transparent'} text-[1.05rem] lg:text-[1.1rem] py-4 px-6 md:py-1 md:px-0 transition-colors cursor-pointer whitespace-nowrap`}>Corporates</button>
+              </li>
+              <li className="w-full md:w-auto border-b border-gray-50 md:border-none">
+                <button onClick={() => { onNavigate('landscape-architecture'); setMobileMenuOpen(false); }} className={`w-full text-left ${currentPage === 'landscape-architecture' ? 'text-[#1b8b22] font-semibold border-l-4 md:border-l-0 md:border-b-2 border-[#1b8b22] bg-green-50/50 md:bg-transparent' : 'text-slate-700 font-medium hover:text-[#1b8b22] border-l-4 md:border-l-0 md:border-b-2 border-transparent hover:bg-gray-50 md:hover:bg-transparent'} text-[1.05rem] lg:text-[1.1rem] py-4 px-6 md:py-1 md:px-0 transition-colors cursor-pointer whitespace-nowrap`}>Landscape Design</button>
+              </li>
+              
+              <li className="relative group w-full md:w-auto border-b border-gray-50 md:border-none">
+                <button onClick={() => { onNavigate('services'); setMobileMenuOpen(false); }} className={`w-full text-left ${currentPage.includes('service') ? 'text-[#1b8b22] font-semibold border-l-4 md:border-l-0 md:border-b-2 border-[#1b8b22] bg-green-50/50 md:bg-transparent' : 'text-slate-700 font-medium hover:text-[#1b8b22] border-l-4 md:border-l-0 md:border-b-2 border-transparent hover:bg-gray-50 md:hover:bg-transparent'} text-[1.05rem] lg:text-[1.1rem] py-4 px-6 md:py-1 md:px-0 transition-colors cursor-pointer flex items-center gap-1 justify-between md:justify-start whitespace-nowrap`}>
+                  Services <i className='bx bx-chevron-down text-xl md:text-base'></i>
                 </button>
                 {/* Dropdown Menu */}
-                <div className="lg:absolute lg:top-full lg:left-0 lg:pt-4 lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible transition-all duration-300 lg:transform lg:origin-top lg:group-hover:translate-y-0 lg:translate-y-2 z-50 hidden lg:block group-hover:block w-full lg:w-[240px] mt-2 lg:mt-0">
-                  <ul className="bg-gray-50 lg:bg-white rounded-xl lg:shadow-xl lg:border border-gray-100 py-2 flex flex-col overflow-hidden">
+                <div className="md:absolute md:top-full md:left-0 md:pt-4 md:opacity-0 md:invisible md:group-hover:opacity-100 md:group-hover:visible transition-all duration-300 md:transform md:origin-top md:group-hover:translate-y-0 md:translate-y-2 z-50 block md:hidden md:group-hover:block w-full md:w-[240px] mt-0 md:mt-0 bg-gray-50/50 md:bg-transparent border-t border-gray-100 md:border-none">
+                  <ul className="md:bg-white md:rounded-xl md:shadow-xl md:border border-gray-100 py-2 flex flex-col overflow-hidden w-full">
                     {[
                       { id: 'rental-plants', name: 'Rental Plants' },
                       { id: 'landscape-work', name: 'Landscape Design' },
@@ -71,10 +97,10 @@ const Header = ({ onOpenQuote, onOpenAuth, onNavigate, currentPage = 'home', use
                       { id: 'kitchen-garden', name: 'Kitchen Garden' },
                       { id: 'office-plants', name: 'Office Plants' }
                     ].map(service => (
-                      <li key={service.id}>
+                      <li key={service.id} className="w-full">
                         <button 
                           onClick={(e) => { e.stopPropagation(); onNavigate(`service-${service.id}`); setMobileMenuOpen(false); }} 
-                          className="w-full text-left px-5 py-3 text-[1rem] text-slate-600 hover:text-[#65a30d] hover:bg-green-50/80 transition-colors cursor-pointer font-medium"
+                          className="w-full text-left pl-10 md:px-5 py-3 text-[0.95rem] md:text-[1rem] text-slate-600 hover:text-[#65a30d] hover:bg-green-50/80 transition-colors cursor-pointer font-medium border-b border-gray-100/50 md:border-none"
                         >
                           {service.name}
                         </button>
@@ -83,23 +109,29 @@ const Header = ({ onOpenQuote, onOpenAuth, onNavigate, currentPage = 'home', use
                   </ul>
                 </div>
               </li>
-              <li><button onClick={() => { onNavigate('all-blogs'); setMobileMenuOpen(false); }} className={`${currentPage === 'all-blogs' ? 'text-[#1b8b22] font-semibold border-b-2 border-[#1b8b22]' : 'text-slate-700 font-medium hover:text-[#1b8b22] border-b-2 border-transparent'} text-[1.05rem] lg:text-[1.1rem] py-1 transition-colors cursor-pointer whitespace-nowrap`}>Blog</button></li>
-              <li><button onClick={() => { onNavigate('contact'); setMobileMenuOpen(false); }} className={`${currentPage === 'contact' ? 'text-[#1b8b22] font-semibold border-b-2 border-[#1b8b22]' : 'text-slate-700 font-medium hover:text-[#1b8b22] border-b-2 border-transparent'} text-[1.05rem] lg:text-[1.1rem] py-1 transition-colors cursor-pointer whitespace-nowrap`}>Contact</button></li>
+              <li className="w-full md:w-auto border-b border-gray-50 md:border-none">
+                <button onClick={() => { onNavigate('all-blogs'); setMobileMenuOpen(false); }} className={`w-full text-left ${currentPage === 'all-blogs' ? 'text-[#1b8b22] font-semibold border-l-4 md:border-l-0 md:border-b-2 border-[#1b8b22] bg-green-50/50 md:bg-transparent' : 'text-slate-700 font-medium hover:text-[#1b8b22] border-l-4 md:border-l-0 md:border-b-2 border-transparent hover:bg-gray-50 md:hover:bg-transparent'} text-[1.05rem] lg:text-[1.1rem] py-4 px-6 md:py-1 md:px-0 transition-colors cursor-pointer whitespace-nowrap`}>Blog</button>
+              </li>
+              <li className="w-full md:w-auto border-b border-gray-50 md:border-none">
+                <button onClick={() => { onNavigate('contact'); setMobileMenuOpen(false); }} className={`w-full text-left ${currentPage === 'contact' ? 'text-[#1b8b22] font-semibold border-l-4 md:border-l-0 md:border-b-2 border-[#1b8b22] bg-green-50/50 md:bg-transparent' : 'text-slate-700 font-medium hover:text-[#1b8b22] border-l-4 md:border-l-0 md:border-b-2 border-transparent hover:bg-gray-50 md:hover:bg-transparent'} text-[1.05rem] lg:text-[1.1rem] py-4 px-6 md:py-1 md:px-0 transition-colors cursor-pointer whitespace-nowrap`}>Contact</button>
+              </li>
               
               {user ? (
-                <li className="relative group ml-0 lg:ml-2">
-                  <button className="text-[#1b8b22] font-semibold text-[1.05rem] lg:text-[1.1rem] py-1 transition-colors cursor-pointer flex items-center gap-1.5 whitespace-nowrap capitalize">
-                    <i className='bx bxs-user-circle text-[1.35rem]'></i> 
-                    {user.name}
+                <li className="relative group w-full md:w-auto border-b border-gray-50 md:border-none ml-0 lg:ml-2">
+                  <button className="w-full text-left text-[#1b8b22] font-semibold text-[1.05rem] lg:text-[1.1rem] py-4 px-6 md:py-1 md:px-0 transition-colors cursor-pointer flex items-center justify-between md:justify-start gap-1.5 whitespace-nowrap capitalize hover:bg-gray-50 md:hover:bg-transparent border-l-4 border-transparent md:border-l-0">
+                    <span className="flex items-center gap-1.5"><i className='bx bxs-user-circle text-[1.35rem]'></i> {user.name}</span>
+                    <i className='bx bx-chevron-down text-xl md:hidden'></i>
                   </button>
-                  <div className="absolute top-full left-0 lg:left-auto lg:right-0 mt-2 w-40 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right scale-95 group-hover:scale-100 z-50 overflow-hidden">
-                    <button onClick={onLogout} className="w-full text-left px-4 py-3 text-red-600 hover:bg-red-50 text-[0.95rem] font-semibold transition-colors flex items-center gap-2">
+                  <div className="md:absolute md:top-full md:left-auto md:right-0 mt-0 md:mt-2 w-full md:w-40 bg-gray-50/50 md:bg-white md:rounded-xl md:shadow-xl md:border border-gray-100 md:opacity-0 md:invisible md:group-hover:opacity-100 md:group-hover:visible transition-all duration-300 md:transform md:origin-top-right md:scale-95 md:group-hover:scale-100 z-50 overflow-hidden block md:hidden md:group-hover:block">
+                    <button onClick={onLogout} className="w-full text-left pl-10 md:px-4 py-4 md:py-3 text-red-600 hover:bg-red-50 text-[0.95rem] font-semibold transition-colors flex items-center gap-2">
                       <i className='bx bx-log-out text-lg'></i> Logout
                     </button>
                   </div>
                 </li>
               ) : (
-                <li className="ml-0 lg:ml-2"><button onClick={onOpenAuth} className="text-slate-700 font-medium hover:text-[#1b8b22] text-[1.05rem] lg:text-[1.1rem] py-1 transition-colors cursor-pointer flex items-center gap-1.5 whitespace-nowrap"><i className='bx bx-user-circle text-[1.35rem]'></i> Login</button></li>
+                <li className="w-full md:w-auto border-b border-gray-50 md:border-none ml-0 lg:ml-2">
+                  <button onClick={onOpenAuth} className="w-full text-left text-slate-700 font-medium hover:text-[#1b8b22] text-[1.05rem] lg:text-[1.1rem] py-4 px-6 md:py-1 md:px-0 transition-colors cursor-pointer flex items-center gap-1.5 whitespace-nowrap hover:bg-gray-50 md:hover:bg-transparent border-l-4 border-transparent md:border-l-0"><i className='bx bx-user-circle text-[1.35rem]'></i> Login</button>
+                </li>
               )}
             </ul>
           </nav>

@@ -37,7 +37,7 @@ const SiteVisitModal = ({ isOpen, onClose }) => {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[2000] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[2000] flex items-center justify-center p-2 sm:p-4">
           {/* Backdrop */}
           <motion.div 
             initial={{ opacity: 0 }}
@@ -58,13 +58,13 @@ const SiteVisitModal = ({ isOpen, onClose }) => {
           >
             
             {/* Header */}
-            <div className="bg-[#0f2e1a] px-6 py-5 flex justify-between items-center text-white relative overflow-hidden">
+            <div className="bg-[#0f2e1a] px-4 py-3 sm:px-6 sm:py-5 flex justify-between items-center text-white relative overflow-hidden">
               {/* subtle background pattern/accent */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#65a30d] rounded-full opacity-20 -mr-10 -mt-10 blur-xl"></div>
               
               <div>
-                <h3 className="text-2xl font-bold tracking-wide !text-white" style={{ color: 'white' }}>Book a Site Visit</h3>
-                <p className="!text-gray-100 text-sm mt-1" style={{ color: '#f3f4f6' }}>Schedule a visit with our landscaping experts.</p>
+                <h3 className="text-lg sm:text-2xl font-bold tracking-wide !text-white" style={{ color: 'white' }}>Book a Site Visit</h3>
+                <p className="!text-gray-100 text-xs sm:text-sm mt-0.5 sm:mt-1" style={{ color: '#f3f4f6' }}>Schedule a visit with our landscaping experts.</p>
               </div>
           <button 
             onClick={onClose}
@@ -75,84 +75,81 @@ const SiteVisitModal = ({ isOpen, onClose }) => {
         </div>
 
         {/* Form */}
-        <div className="p-6">
-          <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="p-3 sm:p-6 max-h-[85vh] sm:max-h-none overflow-y-auto">
+          <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-4">
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <label className="text-sm font-semibold text-gray-700">Full Name *</label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div className="space-y-1">
+                <label className="text-xs sm:text-sm font-semibold text-gray-700">Full Name *</label>
                 <input 
                   type="text" 
                   name="name" 
                   required 
                   placeholder="John Doe"
-                  className="w-full px-4 py-2.5 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white"
+                  className="w-full px-3 py-1.5 sm:px-4 sm:py-2.5 text-[0.8rem] sm:text-base rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white"
                 />
               </div>
-              <div className="space-y-1.5">
-                <label className="text-sm font-semibold text-gray-700">Phone Number *</label>
+              <div className="space-y-1">
+                <label className="text-xs sm:text-sm font-semibold text-gray-700">Phone Number *</label>
                 <input 
                   type="tel" 
                   name="phone" 
                   required 
                   placeholder="+91 98765 43210"
-                  className="w-full px-4 py-2.5 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white"
+                  className="w-full px-3 py-1.5 sm:px-4 sm:py-2.5 text-[0.8rem] sm:text-base rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white"
                 />
               </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <label className="text-sm font-semibold text-gray-700">Email Address *</label>
+              <div className="space-y-1">
+                <label className="text-xs sm:text-sm font-semibold text-gray-700">Email Address *</label>
                 <input 
                   type="email" 
                   name="email" 
                   required 
                   placeholder="john@example.com"
-                  className="w-full px-4 py-2.5 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white"
+                  className="w-full px-3 py-1.5 sm:px-4 sm:py-2.5 text-[0.8rem] sm:text-base rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white"
                 />
               </div>
-              <div className="space-y-1.5">
-                <label className="text-sm font-semibold text-gray-700">Preferred Date *</label>
+              <div className="space-y-1">
+                <label className="text-xs sm:text-sm font-semibold text-gray-700">Preferred Date *</label>
                 <input 
                   type="date" 
                   name="date" 
                   required 
-                  className="w-full px-4 py-2.5 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white text-gray-700"
+                  className="w-full px-3 py-1.5 sm:px-4 sm:py-2.5 text-[0.8rem] sm:text-base rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white text-gray-700"
                 />
               </div>
             </div>
 
-            <div className="space-y-1.5">
-              <label className="text-sm font-semibold text-gray-700">Site Location / Address *</label>
+            <div className="space-y-1">
+              <label className="text-xs sm:text-sm font-semibold text-gray-700">Site Location / Address *</label>
               <input 
                 type="text"
                 name="address" 
                 required
                 placeholder="Enter complete address or Google Maps link"
-                className="w-full px-4 py-2.5 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white"
+                className="w-full px-3 py-1.5 sm:px-4 sm:py-2.5 text-[0.8rem] sm:text-base rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white"
               />
             </div>
 
-            <div className="space-y-1.5">
-              <label className="text-sm font-semibold text-gray-700">Project Requirements</label>
+            <div className="space-y-1">
+              <label className="text-xs sm:text-sm font-semibold text-gray-700">Project Requirements</label>
               <textarea 
                 name="message" 
-                rows="3" 
+                rows="2" 
                 placeholder="Tell us a little about your landscaping needs..."
-                className="w-full px-4 py-2.5 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white resize-none"
+                className="w-full px-3 py-1.5 sm:px-4 sm:py-2.5 text-[0.8rem] sm:text-base rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white resize-none"
               ></textarea>
             </div>
 
-            <div className="pt-2">
+            <div className="pt-1">
               <button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="w-full bg-[#65a30d] hover:bg-[#4d7c0f] text-white font-bold text-sm tracking-wide uppercase py-3.5 rounded-md transition-colors shadow-md flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full bg-[#65a30d] hover:bg-[#4d7c0f] text-white font-bold text-[0.8rem] sm:text-sm tracking-wide uppercase py-2.5 sm:py-3.5 rounded-md transition-colors shadow-md flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Scheduling...' : 'Schedule Visit'} {!isSubmitting && <i className='bx bx-calendar-check text-lg'></i>}
               </button>
-              <p className="text-xs text-center text-gray-400 mt-3">
+              <p className="text-[0.65rem] sm:text-xs text-center text-gray-400 mt-2 sm:mt-3">
                 Our team will contact you to confirm the time slot.
               </p>
             </div>

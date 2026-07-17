@@ -32,7 +32,7 @@ const LandscapeArchitecture = ({ onNavigate }) => {
           className="max-w-[1400px] mx-auto px-6 lg:px-10 relative z-10 text-white w-full"
         >
           <span className="text-[0.75rem] font-bold tracking-widest text-[#a3e635] uppercase mb-4 block">DESIGN STUDIO</span>
-          <h1 className="text-5xl lg:text-7xl font-bold mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-4">
             <span className="block font-medium text-white/90">Landscape</span>
             <span className="block text-white">Architecture</span>
           </h1>
@@ -45,7 +45,7 @@ const LandscapeArchitecture = ({ onNavigate }) => {
       </section>
 
       {/* 2. Intro Section */}
-      <section className="py-20 lg:py-32 relative overflow-hidden bg-white">
+      <section className="py-12 sm:py-20 lg:py-32 relative overflow-hidden bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -40 }}
@@ -55,7 +55,7 @@ const LandscapeArchitecture = ({ onNavigate }) => {
             className="lg:w-1/2"
           >
             <span className="text-[0.75rem] font-bold tracking-widest text-[#65a30d] uppercase mb-4 block">CAPABILITIES</span>
-            <h2 className="text-4xl lg:text-[3.5rem] leading-[1.1] font-bold text-slate-800 mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-[3.5rem] leading-[1.1] font-bold text-slate-800 mb-6">
               From Blank Site to Beautiful Landscape.
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed">
@@ -75,10 +75,10 @@ const LandscapeArchitecture = ({ onNavigate }) => {
       </section>
 
       {/* 3. Capabilities Section */}
-      <section className="py-20 lg:py-28 bg-[#f8fafc] relative">
+      <section className="py-12 sm:py-20 lg:py-28 bg-[#f8fafc] relative">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="mb-16 text-center">
-            <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-4">Every Layer of Landscape Design</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">Every Layer of Landscape Design</h2>
           </div>
           
           <motion.div 
@@ -116,12 +116,12 @@ const LandscapeArchitecture = ({ onNavigate }) => {
       </section>
 
       {/* 4. Selected Work Section */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-12 lg:py-24 bg-white overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="flex flex-col lg:flex-row justify-between items-end mb-12 gap-6">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 gap-6">
             <div>
               <span className="text-[0.75rem] font-bold tracking-widest text-[#65a30d] uppercase mb-4 block">SELECTED WORK</span>
-              <h2 className="text-4xl lg:text-5xl font-bold text-slate-800">Architecture in Bloom</h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800">Architecture in Bloom</h2>
             </div>
             <button onClick={() => onNavigate('projects')} className="text-[#65a30d] text-sm font-bold uppercase tracking-wide flex items-center gap-1 hover:gap-2 transition-all">VIEW ALL PROJECTS <i className='bx bx-right-arrow-alt'></i></button>
           </div>
@@ -157,11 +157,11 @@ const LandscapeArchitecture = ({ onNavigate }) => {
       </section>
 
       {/* CTA Footer Block */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-12 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/assets/cta-bg.jpg')] bg-cover bg-center"></div>
         <div className="absolute inset-0 bg-[#0f2e1a]/90 mix-blend-multiply"></div>
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 flex flex-col items-center text-center relative z-10">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">Ready to Create Your Masterpiece?</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">Ready to Create Your Masterpiece?</h2>
           <p className="text-white/80 text-lg mb-10 max-w-2xl">Connect with our design studio to discuss your upcoming project requirements.</p>
           <button onClick={() => setIsQuoteOpen(true)} className="bg-[#a3e635] hover:bg-[#65a30d] text-slate-900 hover:text-white px-8 py-4 rounded-full font-bold tracking-wide transition-all shadow-xl cursor-pointer hover:scale-105 active:scale-95">
             START YOUR PROJECT

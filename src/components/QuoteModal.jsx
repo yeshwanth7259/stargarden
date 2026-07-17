@@ -36,7 +36,7 @@ const QuoteModal = ({ isOpen, onClose }) => {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[2000] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[2000] flex items-center justify-center p-2 sm:p-4">
           {/* Backdrop */}
           <motion.div 
             initial={{ opacity: 0 }}
@@ -57,13 +57,13 @@ const QuoteModal = ({ isOpen, onClose }) => {
           >
             
             {/* Header */}
-            <div className="bg-[#1b4324] px-6 py-5 flex justify-between items-center text-white relative overflow-hidden">
+            <div className="bg-[#1b4324] px-4 py-3 sm:px-6 sm:py-5 flex justify-between items-center text-white relative overflow-hidden">
               {/* subtle background pattern/accent */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#65a30d] rounded-full opacity-20 -mr-10 -mt-10 blur-xl"></div>
               
               <div>
-                <h3 className="text-2xl font-bold tracking-wide !text-white" style={{ color: 'white' }}>Request a Quote</h3>
-                <p className="!text-gray-100 text-sm mt-1" style={{ color: '#f3f4f6' }}>Fill out the form below and we'll get back to you shortly.</p>
+                <h3 className="text-lg sm:text-2xl font-bold tracking-wide !text-white" style={{ color: 'white' }}>Request a Quote</h3>
+                <p className="!text-gray-100 text-xs sm:text-sm mt-0.5 sm:mt-1" style={{ color: '#f3f4f6' }}>Fill out the form below and we'll get back to you shortly.</p>
               </div>
           <button 
             onClick={onClose}
@@ -74,77 +74,75 @@ const QuoteModal = ({ isOpen, onClose }) => {
         </div>
 
         {/* Form */}
-        <div className="p-6">
-          <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="p-3 sm:p-6 max-h-[85vh] sm:max-h-none overflow-y-auto">
+          <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-4">
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <label className="text-sm font-semibold text-gray-700">Full Name *</label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div className="space-y-1">
+                <label className="text-xs sm:text-sm font-semibold text-gray-700">Full Name *</label>
                 <input 
                   type="text" 
                   name="name" 
                   required 
                   placeholder="John Doe"
-                  className="w-full px-4 py-2.5 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white"
+                  className="w-full px-3 py-1.5 sm:px-4 sm:py-2.5 text-[0.8rem] sm:text-base rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white"
                 />
               </div>
-              <div className="space-y-1.5">
-                <label className="text-sm font-semibold text-gray-700">Phone Number *</label>
+              <div className="space-y-1">
+                <label className="text-xs sm:text-sm font-semibold text-gray-700">Phone Number *</label>
                 <input 
                   type="tel" 
                   name="phone" 
                   required 
                   placeholder="+91 98765 43210"
-                  className="w-full px-4 py-2.5 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white"
+                  className="w-full px-3 py-1.5 sm:px-4 sm:py-2.5 text-[0.8rem] sm:text-base rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white"
                 />
+              </div>
+              <div className="space-y-1">
+                <label className="text-xs sm:text-sm font-semibold text-gray-700">Email Address *</label>
+                <input 
+                  type="email" 
+                  name="email" 
+                  required 
+                  placeholder="john@example.com"
+                  className="w-full px-3 py-1.5 sm:px-4 sm:py-2.5 text-[0.8rem] sm:text-base rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white"
+                />
+              </div>
+              <div className="space-y-1">
+                <label className="text-xs sm:text-sm font-semibold text-gray-700">Service Required</label>
+                <select 
+                  name="service"
+                  className="w-full px-3 py-1.5 sm:px-4 sm:py-2.5 text-[0.8rem] sm:text-base rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white text-gray-700"
+                >
+                  <option value="Corporate Landscaping">Corporate Landscaping</option>
+                  <option value="Indoor Plants">Indoor Plants</option>
+                  <option value="Vertical Gardens">Vertical Gardens / Terrace Gardens</option>
+                  <option value="Maintenance / AMC">Maintenance / AMC Services</option>
+                  <option value="Products">Planters & Products</option>
+                  <option value="Other">Other</option>
+                </select>
               </div>
             </div>
 
-            <div className="space-y-1.5">
-              <label className="text-sm font-semibold text-gray-700">Email Address *</label>
-              <input 
-                type="email" 
-                name="email" 
-                required 
-                placeholder="john@example.com"
-                className="w-full px-4 py-2.5 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white"
-              />
-            </div>
-
-            <div className="space-y-1.5">
-              <label className="text-sm font-semibold text-gray-700">Service Required</label>
-              <select 
-                name="service"
-                className="w-full px-4 py-2.5 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white text-gray-700"
-              >
-                <option value="Corporate Landscaping">Corporate Landscaping</option>
-                <option value="Indoor Plants">Indoor Plants</option>
-                <option value="Vertical Gardens">Vertical Gardens / Terrace Gardens</option>
-                <option value="Maintenance / AMC">Maintenance / AMC Services</option>
-                <option value="Products">Planters & Products</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-
-            <div className="space-y-1.5">
-              <label className="text-sm font-semibold text-gray-700">Your Requirements / Message</label>
+            <div className="space-y-1">
+              <label className="text-xs sm:text-sm font-semibold text-gray-700">Your Requirements / Message</label>
               <textarea 
                 name="message" 
-                rows="3" 
+                rows="2" 
                 placeholder="Tell us about your project or what you need..."
-                className="w-full px-4 py-2.5 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white resize-none"
+                className="w-full px-3 py-1.5 sm:px-4 sm:py-2.5 text-[0.8rem] sm:text-base rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#65a30d] focus:border-transparent transition-all bg-gray-50 focus:bg-white resize-none"
               ></textarea>
             </div>
 
-            <div className="pt-2">
+            <div className="pt-1">
               <button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="w-full bg-[#65a30d] hover:bg-[#4d7c0f] text-white font-bold text-sm tracking-wide uppercase py-3.5 rounded-md transition-colors shadow-md flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full bg-[#65a30d] hover:bg-[#4d7c0f] text-white font-bold text-[0.8rem] sm:text-sm tracking-wide uppercase py-2.5 sm:py-3.5 rounded-md transition-colors shadow-md flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Sending...' : 'Submit Request'} {!isSubmitting && <i className='bx bx-paper-plane text-lg'></i>}
               </button>
-              <p className="text-xs text-center text-gray-400 mt-3">
+              <p className="text-[0.65rem] sm:text-xs text-center text-gray-400 mt-2 sm:mt-3">
                 By submitting this form, you agree to be contacted by Star Gardens.
               </p>
             </div>

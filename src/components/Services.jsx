@@ -215,7 +215,7 @@ const Services = ({ onNavigate }) => {
       </section>
 
       {/* 3. Why Choose Us */}
-      <section className="bg-[#0f2e1a] py-20 relative overflow-hidden">
+      <section className="bg-[#0f2e1a] py-12 lg:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1000&auto=format&fit=crop')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative z-10 text-center">
           <span className="text-[0.75rem] font-bold tracking-widest text-[#a3e635] uppercase mb-4 block">WHY CHOOSE US</span>
@@ -226,20 +226,20 @@ const Services = ({ onNavigate }) => {
             whileInView="visible"
             viewport={{ once: true }}
             variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-            className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 divide-y md:divide-y-0 md:divide-x divide-white/20 text-center"
+            className="grid grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-0 lg:divide-x divide-white/20 text-center"
           >
             {[
-              { icon: 'bx-spa', title: 'Own Nurseries', desc: '70+ acres of nurseries ensuring high quality plants all year round.' },
-              { icon: 'bx-cog', title: 'Expert Team', desc: 'Horticulturists, designers and technicians with deep expertise.' },
-              { icon: 'bx-check-shield', title: 'Turnkey Services', desc: 'From design to maintenance, we handle everything.' },
-              { icon: 'bx-time-five', title: 'On-time Delivery', desc: 'Timely execution with strict quality and safety standards.' },
-              { icon: 'bx-support', title: 'AMC Support', desc: 'Comprehensive AMC services for long-term green upkeep.' },
-              { icon: 'bx-map-pin', title: 'Pan India Presence', desc: 'Serving corporate clients across major cities in India.' }
+              { icon: 'bx-spa', title: 'Own Nurseries', desc: '70+ acres of nurseries.' },
+              { icon: 'bx-cog', title: 'Expert Team', desc: 'Deep horticultural expertise.' },
+              { icon: 'bx-check-shield', title: 'Turnkey Services', desc: 'From design to maintenance.' },
+              { icon: 'bx-time-five', title: 'On-time Delivery', desc: 'Strict quality & safety.' },
+              { icon: 'bx-support', title: 'AMC Support', desc: 'Long-term green upkeep.' },
+              { icon: 'bx-map-pin', title: 'Pan India', desc: 'Serving across major cities.' }
             ].map((feat, idx) => (
-              <motion.div key={idx} variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col items-center px-4 py-6 lg:py-0">
-                <i className={`bx ${feat.icon} text-4xl text-[#a3e635] mb-4`}></i>
+              <motion.div key={idx} variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1, transition: { type: 'spring' } } }} className="flex flex-col items-center px-2 py-6 lg:py-0 bg-white/5 lg:bg-transparent rounded-2xl lg:rounded-none border border-white/10 lg:border-transparent backdrop-blur-md lg:backdrop-blur-none shadow-xl lg:shadow-none hover:bg-white/10 transition-colors group">
+                <i className={`bx ${feat.icon} text-4xl text-[#a3e635] mb-3 group-hover:scale-110 transition-transform duration-300`}></i>
                 <h4 className="text-white font-bold text-[0.95rem] mb-2">{feat.title}</h4>
-                <p className="text-white/70 text-[0.8rem] leading-relaxed max-w-[200px]">{feat.desc}</p>
+                <p className="text-white/70 text-[0.75rem] leading-relaxed max-w-[150px]">{feat.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -247,52 +247,57 @@ const Services = ({ onNavigate }) => {
       </section>
 
       {/* 4. Our Process */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-12 lg:py-24 bg-white overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="text-center mb-16">
             <span className="text-[0.7rem] font-bold tracking-widest text-[#65a30d] uppercase mb-4 block">OUR PROCESS</span>
             <h2 className="text-3xl lg:text-[2.5rem] font-serif font-bold text-[#1e293b]">How We Work</h2>
           </div>
 
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
-            className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-2 relative z-10"
-          >
-            {[
-              { title: 'Consultation', icon: 'bx-headphone', desc: 'Understanding your vision and requirements.' },
-              { title: 'Site Survey', icon: 'bx-map-alt', desc: 'Detailed assessment of the space and conditions.' },
-              { title: 'Design & Plan', icon: 'bx-pencil', desc: 'Creative designs and solutions tailored to your needs.' },
-              { title: 'Execution', icon: 'bx-hard-hat', desc: 'Expert execution with quality materials and techniques.' },
-              { title: 'Maintenance', icon: 'bx-leaf', desc: 'Regular upkeep to keep your green spaces thriving.' },
-              { title: 'Regular Reviews', icon: 'bx-sync', desc: 'Continuous monitoring and improvement for excellence.' },
-            ].map((step, index, arr) => (
-              <React.Fragment key={step.title}>
-                <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col items-center text-center w-full lg:w-40 relative group">
-                  <div className="w-20 h-20 rounded-full border border-gray-200 flex items-center justify-center mb-4 text-[#65a30d] bg-white group-hover:bg-[#65a30d] group-hover:text-white group-hover:border-[#65a30d] shadow-sm transition-all duration-300">
-                    <i className={`bx ${step.icon} text-[2rem]`}></i>
-                  </div>
-                  <h4 className="font-bold text-slate-800 text-[0.95rem] mb-2">{step.title}</h4>
-                  <p className="text-slate-500 text-[0.8rem] leading-relaxed px-2">{step.desc}</p>
-                </motion.div>
-                {index < arr.length - 1 && (
-                  <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }} className="hidden lg:flex flex-col justify-center items-center h-20 flex-grow px-2">
-                    <div className="w-full flex items-center text-gray-300">
-                      <div className="h-[2px] w-full border-t-2 border-dashed border-gray-300"></div>
-                      <i className='bx bx-chevron-right text-2xl -ml-2 text-gray-400'></i>
+          <div className="relative z-10">
+            {/* Mobile Vertical Timeline Line */}
+            <div className="absolute left-1/2 top-10 bottom-10 w-[2px] border-l-2 border-dashed border-gray-200 -translate-x-1/2 lg:hidden z-0"></div>
+            
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+              className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-8 lg:gap-2 relative z-10"
+            >
+              {[
+                { title: 'Consultation', icon: 'bx-headphone', desc: 'Understanding your vision and requirements.' },
+                { title: 'Site Survey', icon: 'bx-map-alt', desc: 'Detailed assessment of the space and conditions.' },
+                { title: 'Design & Plan', icon: 'bx-pencil', desc: 'Creative designs and solutions tailored to your needs.' },
+                { title: 'Execution', icon: 'bx-hard-hat', desc: 'Expert execution with quality materials and techniques.' },
+                { title: 'Maintenance', icon: 'bx-leaf', desc: 'Regular upkeep to keep your green spaces thriving.' },
+                { title: 'Regular Reviews', icon: 'bx-sync', desc: 'Continuous monitoring and improvement for excellence.' },
+              ].map((step, index, arr) => (
+                <div key={step.title} className="flex flex-col lg:flex-row items-center w-full lg:w-auto relative">
+                  <motion.div variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { type: 'spring' } } }} className="flex flex-col items-center text-center w-[85%] sm:w-80 lg:w-40 relative group bg-white lg:bg-transparent p-6 rounded-3xl lg:p-0 shadow-lg lg:shadow-none border border-gray-100 lg:border-transparent z-10">
+                    <div className="w-20 h-20 rounded-full bg-[#f4f8f4] lg:bg-white border border-gray-100 flex items-center justify-center mb-4 text-[#65a30d] group-hover:bg-[#65a30d] group-hover:text-white lg:group-hover:border-[#65a30d] shadow-sm transition-all duration-300">
+                      <i className={`bx ${step.icon} text-[2rem] group-hover:scale-110 transition-transform`}></i>
                     </div>
+                    <h4 className="font-bold text-slate-800 text-[1.05rem] mb-2">{step.title}</h4>
+                    <p className="text-slate-500 text-[0.85rem] leading-relaxed px-2">{step.desc}</p>
                   </motion.div>
-                )}
-              </React.Fragment>
-            ))}
-          </motion.div>
+                  {index < arr.length - 1 && (
+                    <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }} className="hidden lg:flex flex-col justify-center items-center h-20 flex-grow px-2 z-0 w-full min-w-[20px]">
+                      <div className="w-full flex items-center text-gray-300">
+                        <div className="h-[2px] w-full border-t-2 border-dashed border-gray-300"></div>
+                        <i className='bx bx-chevron-right text-2xl -ml-2 text-gray-400'></i>
+                      </div>
+                    </motion.div>
+                  )}
+                </div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* 5. CTA Footer block */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-12 lg:py-20 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/assets/cta-bg.jpg')] bg-cover bg-center"></div>
         <div className="absolute inset-0 bg-black/80"></div>
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 flex flex-col lg:flex-row items-center justify-between gap-10 relative z-10">
