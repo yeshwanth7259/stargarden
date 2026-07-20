@@ -132,7 +132,7 @@ const Footer = ({ onNavigate }) => {
               <li className="flex gap-4 items-center group cursor-pointer w-full">
                 <a href="https://wa.me/9108336666" target="_blank" rel="noopener noreferrer" className="flex gap-4 items-center w-full">
                   <i className='bx bxl-whatsapp text-[#65a30d] text-2xl group-hover:scale-110 transition-transform'></i>
-                  <span className="text-[0.95rem] text-slate-700 font-semibold group-hover:text-[#65a30d] transition-colors">WhatsApp: +91 91083 36666</span>
+                  <span className="text-[0.95rem] text-slate-700 font-semibold group-hover:text-[#65a30d] transition-colors whitespace-nowrap">+91 91083 36666</span>
                 </a>
               </li>
               <li className="flex gap-4 items-center group cursor-pointer w-full">
