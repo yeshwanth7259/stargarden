@@ -72,7 +72,7 @@ const DynamicBlogArticle = ({ articleId, onNavigate }) => {
             <p className="mb-6 text-slate-600 text-lg">Our experts are ready to transform your space into a stunning green paradise.</p>
             <a 
               href="https://wa.me/9108336666" target="_blank" rel="noopener noreferrer"
-              className="inline-block bg-[#65a30d] text-white px-8 py-4 rounded-lg font-bold hover:bg-[#4d7c0f] transition-colors"
+              className="inline-block bg-[#65a30d] !text-white px-8 py-4 rounded-lg font-bold hover:bg-[#4d7c0f] transition-colors"
             >
               Contact Us Today
             </a>
