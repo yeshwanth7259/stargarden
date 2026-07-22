@@ -20,6 +20,7 @@ import BlogArticle2 from './components/BlogArticle2';
 import BlogArticle3 from './components/BlogArticle3';
 import DynamicBlogArticle from './components/DynamicBlogArticle';
 import AllBlogs from './components/AllBlogs';
+import ClientPortal from './components/ClientPortal';
 import { AnimatePresence, motion } from 'framer-motion';
 
 function App() {
@@ -166,6 +167,16 @@ function App() {
             >
               <Contact />
             </motion.div>
+          ) : currentPage === 'client-portal' && loggedInUser ? (
+            <motion.div
+              key="client-portal"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <ClientPortal user={loggedInUser} />
+            </motion.div>
           ) : (
             <motion.div
               key="about"
@@ -185,7 +196,7 @@ function App() {
       <AuthModal 
         isOpen={isAuthOpen} 
         onClose={() => setIsAuthOpen(false)} 
-        onLogin={(userData) => setLoggedInUser(userData)}
+        onLogin={(userData) => { setLoggedInUser(userData); setCurrentPage('client-portal'); }}
       />
 
       {/* Floating WhatsApp */}

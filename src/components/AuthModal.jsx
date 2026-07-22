@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const AuthModal = ({ isOpen, onClose, onLogin }) => {
   const [activeTab, setActiveTab] = useState('login'); // 'login' or 'signup'
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   // Close on Escape key
   useEffect(() => {
@@ -16,43 +17,43 @@ const AuthModal = ({ isOpen, onClose, onLogin }) => {
 
   // Prevent scroll on body when modal open
   useEffect(() => {
-    if (isOpen) document.body.style.overflow = 'hidden';
-    else document.body.style.overflow = 'unset';
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      setError(''); // clear error when opened
+    } else {
+      document.body.style.overflow = 'unset';
+    }
     return () => { document.body.style.overflow = 'unset'; }
   }, [isOpen]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
     
-    // Using Web3Forms so you receive a notification when someone signs up
     const formData = new FormData(e.target);
-    formData.append("access_key", "00488a85-4ac0-42b5-9af1-864c709ed4a2");
-    formData.append("subject", activeTab === 'signup' ? "New User Sign Up!" : "User Login Attempt");
+    const userName = formData.get("name") || formData.get("email").split('@')[0];
+    const userEmail = formData.get("email");
+    const userPhone = formData.get("phone") || "N/A";
+    const password = formData.get("password");
 
-    try {
-      // Temporarily simulating a successful backend request until we integrate Firebase
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      const userName = formData.get("name") || formData.get("email").split('@')[0];
-      
-      if (onLogin) {
-        onLogin({ name: userName, email: formData.get("email") });
+    // Simulate backend password validation
+    if (activeTab === 'login') {
+      if (password !== 'password123') {
+        setError('Incorrect password. Please try again.');
+        setIsSubmitting(false);
+        return;
       }
-
-      if (activeTab === 'signup') {
-        alert("Sign up successful! Welcome to Star Gardens.");
-      } else {
-        alert("Login successful! Welcome back.");
-      }
-      e.target.reset();
-      onClose();
-    } catch (error) {
-      console.error(error);
-      alert("An error occurred. Please try again later.");
-    } finally {
-      setIsSubmitting(false);
     }
+    
+    // Log in locally
+    if (onLogin) {
+      onLogin({ name: userName, email: userEmail, phone: userPhone });
+    }
+
+    e.target.reset();
+    onClose();
+    setIsSubmitting(false);
   };
 
   return (
@@ -168,8 +169,14 @@ const AuthModal = ({ isOpen, onClose, onLogin }) => {
                       name="password" 
                       required 
                       placeholder="••••••••"
-                      className="w-full bg-gray-50 border border-gray-200 text-slate-800 px-4 py-3 rounded-lg focus:outline-none focus:border-[#65a30d] focus:ring-1 focus:ring-[#65a30d] transition-all"
+                      className={`w-full bg-gray-50 border ${error ? 'border-red-400 focus:ring-red-400' : 'border-gray-200 focus:border-[#65a30d] focus:ring-[#65a30d]'} text-slate-800 px-4 py-3 rounded-lg focus:outline-none focus:ring-1 transition-all`}
                     />
+                    {error && (
+                      <p className="text-red-500 text-xs font-semibold mt-1 animate-pulse">{error}</p>
+                    )}
+                    {activeTab === 'login' && (
+                      <p className="text-slate-400 text-xs mt-1">Hint: Use 'password123' to login</p>
+                    )}
                   </div>
 
                   <div className="pt-4">

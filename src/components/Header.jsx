@@ -118,9 +118,9 @@ const Header = ({ onOpenQuote, onOpenAuth, onNavigate, currentPage = 'home', use
               
               {user ? (
                 <li className="relative group w-full md:w-auto border-b border-gray-50 md:border-none ml-0 lg:ml-2">
-                  <button className="w-full text-left text-[#1b8b22] font-semibold text-[1.05rem] lg:text-[1.1rem] py-4 px-6 md:py-1 md:px-0 transition-colors cursor-pointer flex items-center justify-between md:justify-start gap-1.5 whitespace-nowrap capitalize hover:bg-gray-50 md:hover:bg-transparent border-l-4 border-transparent md:border-l-0">
-                    <span className="flex items-center gap-1.5"><i className='bx bxs-user-circle text-[1.35rem]'></i> {user.name}</span>
-                    <i className='bx bx-chevron-down text-xl md:hidden'></i>
+                  <button onClick={() => { onNavigate('client-portal'); setMobileMenuOpen(false); }} className={`w-full text-left font-semibold text-[1.05rem] lg:text-[1.1rem] py-4 px-6 md:py-1 md:px-0 transition-colors cursor-pointer flex items-center justify-between md:justify-start gap-1.5 whitespace-nowrap capitalize hover:bg-gray-50 md:hover:bg-transparent border-l-4 md:border-l-0 ${currentPage === 'client-portal' ? 'text-[#1b8b22] md:border-b-2 border-[#1b8b22] bg-green-50/50 md:bg-transparent' : 'text-slate-700 hover:text-[#1b8b22] border-transparent'}`}>
+                    <span className="flex items-center gap-1.5"><i className='bx bxs-user-circle text-[1.35rem] text-[#1b8b22]'></i> Client Portal</span>
+                    <i className='bx bx-chevron-down text-xl md:hidden text-gray-400'></i>
                   </button>
                   <div className="md:absolute md:top-full md:left-auto md:right-0 mt-0 md:mt-2 w-full md:w-40 bg-gray-50/50 md:bg-white md:rounded-xl md:shadow-xl md:border border-gray-100 md:opacity-0 md:invisible md:group-hover:opacity-100 md:group-hover:visible transition-all duration-300 md:transform md:origin-top-right md:scale-95 md:group-hover:scale-100 z-50 overflow-hidden block md:hidden md:group-hover:block">
                     <button onClick={onLogout} className="w-full text-left pl-10 md:px-4 py-4 md:py-3 text-red-600 hover:bg-red-50 text-[0.95rem] font-semibold transition-colors flex items-center gap-2">

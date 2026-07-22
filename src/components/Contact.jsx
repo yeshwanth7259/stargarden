@@ -138,33 +138,33 @@ const Contact = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="group">
-                  <label className="block text-[0.75rem] font-bold text-slate-700 mb-2 uppercase tracking-wide">Your Name *</label>
+                  <label htmlFor="name" className="block text-[0.75rem] font-bold text-slate-700 mb-2 uppercase tracking-wide">Your Name *</label>
                   <div className="relative">
                     <i className='bx bx-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[#65a30d] transition-colors'></i>
-                    <input type="text" name="name" required placeholder="Enter your full name" className="w-full bg-slate-50/50 border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 text-[0.95rem] focus:outline-none focus:border-[#65a30d] focus:ring-4 focus:ring-[#65a30d]/10 transition-all focus:bg-white" />
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name" className="w-full bg-slate-50/50 border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 text-[0.95rem] focus:outline-none focus:border-[#65a30d] focus:ring-4 focus:ring-[#65a30d]/10 transition-all focus:bg-white" />
                   </div>
                 </motion.div>
                 <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="group">
-                  <label className="block text-[0.75rem] font-bold text-slate-700 mb-2 uppercase tracking-wide">Phone Number *</label>
+                  <label htmlFor="phone" className="block text-[0.75rem] font-bold text-slate-700 mb-2 uppercase tracking-wide">Phone Number *</label>
                   <div className="relative">
                     <i className='bx bx-phone absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[#65a30d] transition-colors'></i>
-                    <input type="tel" name="phone" required placeholder="Enter your phone number" className="w-full bg-slate-50/50 border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 text-[0.95rem] focus:outline-none focus:border-[#65a30d] focus:ring-4 focus:ring-[#65a30d]/10 transition-all focus:bg-white" />
+                    <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number" className="w-full bg-slate-50/50 border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 text-[0.95rem] focus:outline-none focus:border-[#65a30d] focus:ring-4 focus:ring-[#65a30d]/10 transition-all focus:bg-white" />
                   </div>
                 </motion.div>
               </div>
 
               <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="group">
-                <label className="block text-[0.75rem] font-bold text-slate-700 mb-2 uppercase tracking-wide">Email Address *</label>
+                <label htmlFor="email" className="block text-[0.75rem] font-bold text-slate-700 mb-2 uppercase tracking-wide">Email Address *</label>
                 <div className="relative">
                   <i className='bx bx-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[#65a30d] transition-colors'></i>
-                  <input type="email" name="email" required placeholder="Enter your email address" className="w-full bg-slate-50/50 border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 text-[0.95rem] focus:outline-none focus:border-[#65a30d] focus:ring-4 focus:ring-[#65a30d]/10 transition-all focus:bg-white" />
+                  <input type="email" id="email" name="email" required placeholder="Enter your email address" className="w-full bg-slate-50/50 border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 text-[0.95rem] focus:outline-none focus:border-[#65a30d] focus:ring-4 focus:ring-[#65a30d]/10 transition-all focus:bg-white" />
                 </div>
               </motion.div>
 
               <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="group">
-                <label className="block text-[0.75rem] font-bold text-slate-700 mb-2 uppercase tracking-wide">Subject *</label>
+                <label htmlFor="subject" className="block text-[0.75rem] font-bold text-slate-700 mb-2 uppercase tracking-wide">Subject *</label>
                 <div className="relative">
-                  <select name="subject" required defaultValue="" className="w-full bg-slate-50/50 border border-slate-200 rounded-xl py-3.5 px-4 text-[0.95rem] focus:outline-none focus:border-[#65a30d] focus:ring-4 focus:ring-[#65a30d]/10 transition-all appearance-none text-slate-600 focus:bg-white">
+                  <select id="subject" name="subject" required defaultValue="" className="w-full bg-slate-50/50 border border-slate-200 rounded-xl py-3.5 px-4 text-[0.95rem] focus:outline-none focus:border-[#65a30d] focus:ring-4 focus:ring-[#65a30d]/10 transition-all appearance-none text-slate-600 focus:bg-white">
                     <option value="" disabled>Select a subject</option>
                     <option value="landscape">Landscape Design</option>
                     <option value="indoor">Indoor Plants</option>
@@ -176,8 +176,8 @@ const Contact = () => {
               </motion.div>
 
               <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="group">
-                <label className="block text-[0.75rem] font-bold text-slate-700 mb-2 uppercase tracking-wide">Message *</label>
-                <textarea name="message" required placeholder="Tell us about your project or requirement..." rows="4" className="w-full bg-slate-50/50 border border-slate-200 rounded-xl py-4 px-4 text-[0.95rem] focus:outline-none focus:border-[#65a30d] focus:ring-4 focus:ring-[#65a30d]/10 transition-all resize-none focus:bg-white"></textarea>
+                <label htmlFor="message" className="block text-[0.75rem] font-bold text-slate-700 mb-2 uppercase tracking-wide">Message *</label>
+                <textarea id="message" name="message" required placeholder="Tell us about your project or requirement..." rows="4" className="w-full bg-slate-50/50 border border-slate-200 rounded-xl py-4 px-4 text-[0.95rem] focus:outline-none focus:border-[#65a30d] focus:ring-4 focus:ring-[#65a30d]/10 transition-all resize-none focus:bg-white"></textarea>
               </motion.div>
 
               <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex items-start gap-3">

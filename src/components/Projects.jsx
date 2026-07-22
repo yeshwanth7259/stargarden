@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Projects = ({ onNavigate }) => {
   const [filter, setFilter] = useState('ALL');
-  const filters = ['ALL', 'CORPORATE', 'RESIDENTIAL', 'HOSPITALITY', 'INSTITUTIONAL'];
+  const filters = ['ALL', 'CORPORATE', 'RESIDENTIAL', 'HOSPITALS', 'INSTITUTIONAL'];
   
   const projects = [
     { img: '/assets/project-corporate.png', cat: 'CORPORATE', title: 'Accenture, Bangalore', desc: 'Landscape, Indoor Plants, AMC' },
     { img: '/assets/project-residential.png', cat: 'RESIDENTIAL', title: 'Luxury Villa, Whitefield', desc: 'Landscape Design & Execution' },
-    { img: '/assets/project-hospitality.png', cat: 'HOSPITALITY', title: 'Five Star Hotel, Goa', desc: 'Landscape & Water Features' },
+    { img: '/assets/project-hospital.png', cat: 'HOSPITALS', title: 'City Hospital, Bangalore', desc: 'Healing Gardens & Green Spaces' },
     { img: '/assets/project-institutional.png', cat: 'INSTITUTIONAL', title: 'Tech Park, Hyderabad', desc: 'Landscape & Maintenance' },
   ];
 
